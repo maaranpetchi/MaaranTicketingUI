@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="custom-toolbar">
+    <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+      <mat-icon class="sideIcon">menu</mat-icon>
+    </button>
+  
+    <!-- Image on the left -->
+    <div class="left-section">
+      <img src="../../../../assets/images/kryptos_logo.png" alt="Logo" height="40px" class="logo">
+    </div>
+  
+    <!-- "kryptosTicket" at the center -->
+    <div class="center-section">
+      <h2 class="center-text">kryptosTicket</h2>
+    </div>
+  
+    <!-- MatIcon avatar and login user name on the right -->
+    <div class="right-section">
+      <button mat-icon-button aria-label="Avatar">
+       <p> <mat-icon class="sideIcon">account_circle</mat-icon>{{this.fullName}}</p>
+      </button>
+    </div>
+  </mat-toolbar>
+  
+  
+<mat-sidenav-container autosize="true">
+  <mat-sidenav class="side-Nav" [ngClass]="!isCollapsed ? 'expanded' : ''" [mode]="isMobile ? 'over' : 'side'" [opened]="isMobile ? 'false' : 'true'">
+    <mat-nav-list>
+      <a mat-list-item>
+        <span class="entry">
+          <mat-icon class="sideIcon">house</mat-icon>
+          <span *ngIf="!isCollapsed" class="sideSpan">Dashboard</span>
+        </span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <h2>Content</h2>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
